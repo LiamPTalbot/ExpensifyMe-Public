@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>{% block title %}{% endblock %} - ExpensifyMe</title>
+      <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+      <script src="{{ url_for('static', filename='script.js') }}"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+
+  <body>
+
+    <nav>
+      <h1><a class="title" href="{{ url_for('main.index') }}">ExpensifyMe</a></h1>
+      <ul>
+        {% if g.user %}
+        <li><span id="username">{{ g.user['username'] }}</span></li>
+        <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+        {% else %}
+        <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+        <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    <section class="content">
+      <div class="textbox">
+        <header>
+          {% block header %}{% endblock %}
+        </header>
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+      </div>
+    </section>
+    <footer>
+      <p>
+        Coded in <a href="https://code.visualstudio.com/" target="_blank" class="anchor-text">Visual Studio Code</a>
+        by yours truly<br />Built with HTML, CSS, JavaScript, Python, Flask and Jinja with API to <a href="https://azure.com/" target="_blank" class="anchor-text">Microsoft Azure AI Form Recognizer</a><br/>
+        Deployed via Gunicorn on <a href="https://azure.com/" target="_blank" class="anchor-text">Microsoft Azure Web Apps</a><br/>
+        All text is set in the <a href="https://rsms.me/inter/" target="_blank" class="anchor-text">Inter</a> typeface
+      </p>
+    </footer>
+  </body>
+</html>

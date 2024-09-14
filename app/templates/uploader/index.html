@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 id="index-welcome">{% block title %}Welcome{% endblock %}</h1>
+  {% if g.user %}
+    <a class="button" href="{{ url_for('main.upload_form') }}">
+      <i class="fa-solid fa-cloud-arrow-up"></i> Upload New File
+    </a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <p id="index-p">Welcome to the ExpensifyMe receipt reading service. Upload an image of your receipt and AI will review your image and return the key-Value pairs in a .csv file format. You can then download the file to use for your expense system.</p>
+  <p>Log In and use the link above to upload an image of your receipt.</p>
+{% endblock %}

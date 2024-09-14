@@ -1,0 +1,233 @@
+/* root styles */
+:root {
+  --color-background: #494D5F;
+  --color-box: #845883;
+  --color-text: #d0bdf4;
+  --color-highlight: #e5eaf5;
+}
+
+/* global reset, sets font, and puts temp border to see flexboxes */
+* {
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition-duration: 200ms;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--color-box);
+  height: 5rem;
+  justify-content: space-between;
+  align-items: end;
+}
+
+nav h1 { 
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+nav h1 a:hover {
+  font-weight: 750;
+  color: var(--color-highlight)
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 10px;
+  margin-right: 1rem;
+  margin-bottom: 0.75rem;
+  font-weight: bold;
+}
+
+nav ul a:hover {
+  font-weight: 1000;
+  color: var(--color-highlight)
+}
+
+#username {
+  font-weight: bold;
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: 'Inter';
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  height: 100vh;
+}
+
+.textbox {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-text);
+  color: var(--color-background);
+  padding: 2rem;
+  margin: 1rem 2rem;
+  border-radius: 1rem;
+  justify-content: center;
+}
+
+.textbox p {
+  margin-top: 0.5rem;
+  line-height: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  gap: 0.125rem;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  overflow: auto;
+  margin-top: 1rem;
+  padding: 0.25rem;
+  font-weight: bold;
+  color: var(--color-box);
+  background-color: var(--color-highlight);
+  border-radius: 0.25rem;
+  cursor: pointer;
+
+  /* popout effect */
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2), 0 0 0 rgba(0, 0, 0, 0.1);
+  transform: translateY(0px);
+  transition: all 0.1s ease-in-out;
+}
+
+.button:hover {
+  transform: translateY(-0.5px);
+  box-shadow: 0px 20px 25px rgba(0, 0, 0, 0.3), 0 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.button:active {
+  transform: translateY(0px);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button.max {
+  max-width: 10rem;
+  padding: 0.25rem 2rem;
+  
+}
+
+#index-welcome {
+  margin-bottom: 0.75rem;
+}
+
+#index-p {
+  margin-top: 1.5rem;
+}
+
+.choose-file {
+  margin-top: 0.5rem;
+}
+
+/* Results Container Styling */
+.results-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.receipt-image {
+  max-width: 45%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.table-container {
+  flex: 1;
+  overflow-x: auto;
+  font-size: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.results-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Basic Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+footer {
+  font-weight: 100;
+  color: var(--color-highlight);
+  padding: 10px;
+  position: relative; /* Ensure the footer is positioned relative to its normal flow */
+}
+
+footer a:hover {
+  font-weight: 500;
+}
+
+@media (min-width: 640px) {
+  .textbox {
+    width: 640px;
+    margin: 1rem auto;
+  }
+}

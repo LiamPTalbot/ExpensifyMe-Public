@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Upload Receipt
+{% endblock %}
+
+{% block header %}
+    <h2>Upload Receipt</h2>
+{% endblock %}
+
+{% block content %}
+    <form action="{{ url_for('main.upload_file') }}" method="post" enctype="multipart/form-data">
+        <input class="choose-file" type="file" name="file" />
+        <input class="button max" type="submit" value="Upload" />
+    </form>
+
+    {% if show_results_link %}
+        <a href="{{ url_for('main.results') }}" class="btn">View Results</a>
+    {% endif %}
+
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+{% endblock %}
